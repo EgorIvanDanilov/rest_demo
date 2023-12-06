@@ -41,6 +41,11 @@ public class CatRepository implements CrudRepository<SimpleCat> {
         }
     }
 
+    public static void main(String[] args) {
+        List<SimpleCat> cats = new CatRepository().getAll();
+        System.out.println(cats);
+    }
+
     @Override
     public void deleteById(int id) {
 

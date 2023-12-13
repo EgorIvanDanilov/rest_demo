@@ -2,11 +2,13 @@ package aittr.demo_rest.services;
 
 import aittr.demo_rest.domain.Cat;
 import aittr.demo_rest.repositories.CatRepository;
+import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
-public class CatService implements  Service<Cat>{
+@Service
+public class CatService implements  AppService<Cat>{
   private CatRepository repository;
-
   public CatService(CatRepository repository) {
     this.repository = repository;
   }
@@ -23,7 +25,7 @@ public class CatService implements  Service<Cat>{
 
   @Override
   public List<Cat> getAll() {
-    return null;
+    return new ArrayList<>(repository.getAll());
   }
 
   @Override
